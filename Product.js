@@ -16,7 +16,7 @@ const Product = function (){
     }
 
     function determineNumber(){
-        let price = Math.round(100000*Math.random())/100;
+        let price = Math.round(10000*Math.random())/100;
         return price;
     }
 
