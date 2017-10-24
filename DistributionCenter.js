@@ -16,7 +16,8 @@ function configureTruckFleet(numberoftrucks){
     let theFleet = new Queue();
     //fill the fleet with different sized trucks using math.random()
     for(let x=0;x<numberoftrucks;x++){
-        theFleet.enqueue(new Truck());
+        //decide truck size
+        theFleet.enqueue(new Truck(size));
     }
     return theFleet;
 

@@ -25,3 +25,4 @@ const Truck = function(size){
       return sum/capacity;
   }
 }
+module.exports = Truck;

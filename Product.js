@@ -30,3 +30,4 @@ const Product = function (){
         }
     }
 }
+module.exports = Product;
