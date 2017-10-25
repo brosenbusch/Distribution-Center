@@ -24,5 +24,6 @@ const Truck = function(size){
       }
       return sum/capacity;
   }
+  return {type,inventory,capacity}
 }
 module.exports = Truck;

@@ -17,6 +17,16 @@ function configureTruckFleet(numberoftrucks){
     //fill the fleet with different sized trucks using math.random()
     for(let x=0;x<numberoftrucks;x++){
         //decide truck size
+        let randomnumber = Math.random();
+        if(randomnumber <= 0.33){
+            size = "small";
+        }
+        else if(randomnumber > 0.33 && randomnumber < 0.66){
+            size = "medium";
+        }
+        else{
+            size = "large";
+        }
         theFleet.enqueue(new Truck(size));
     }
     return theFleet;
@@ -39,20 +49,22 @@ function distribute(wh,tf){
 }
 
 function main(){
-    let flemhouse = configureWareHouse();
-    let flemfleet = configureTruckFleet();
+    console.log("Started...\n")
+    let flemhouse = configureWareHouse(10);
+    let flemfleet = configureTruckFleet(10);
+
     let ready = distribute(flemhouse,flemfleet);
-    //ready is empty
-    console.log(ready.dequeue());
-    for(let s=0;s<ready.length;s++){
-        console.log("Truck "+s+" is in route");
-        console.log("-----------------------");
-        while(!ready.isEmpty()){
-          let ct = ready.dequeue();
-          console.log(ct.spaceEfficiency());
-          for(let x=0; x<ct.inventory.length; x++){
-              console.log(ct.inventory[x].name);
-          }
+
+    ready.print();
+    flemhouse.print();
+    flemfleet.print();
+    while(!ready.isEmpty()){
+        console.log("Truck with products...");
+        console.log("----------------------");
+        let t = ready.dequeue();
+        console.log(t.spaceEfficiency());
+        for(let x=0; x<ct.inventory.length; x++){
+            console.log(ct.inventory[x].name);
         }
     }
 }

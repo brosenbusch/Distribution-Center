@@ -21,13 +21,14 @@ const Product = function (){
     }
 
     function determinePrime(){
-        let num = Math.random()*100;
-        if (num > 50){
+        let num = Math.random();
+        if (num >= 0.5){
             prime = true;
         }
         else{
             prime = false;
         }
     }
+    return {name,price,space,prime};
 }
 module.exports = Product;
